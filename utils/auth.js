@@ -11,8 +11,11 @@ const auth = async(req,res, next) => {
     //トークンを受け取る
     // const token = await req.headers.authorization.split(" ")[1]
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTc1NzA3ODQxMywiZXhwIjoxNzU3MTYxMjEzfQ.0-QAMFVM9KMXzq7C_YKhQJRKdECN8h8JHQM2M0fMxgw"
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTc1NzE2NDQ2NSwiZXhwIjoxNzU3MjQ3MjY1fQ.n7TjzK-Ps1tI3c5Crc5odBBFwBRjrjgK2YMZlovwdFs"
-
+    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsImlhdCI6MTc1NzE2NDQ2NSwiZXhwIjoxNzU3MjQ3MjY1fQ.n7TjzK-Ps1tI3c5Crc5odBBFwBRjrjgK2YMZlovwdFs"
+    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIyQGdtYWlsLmNvbSIsImlhdCI6MTc1NzI4OTgzMywiZXhwIjoxNzU3MzcyNjMzfQ.mRBmsdkTfqE-e6t9J-uqoJkDlqEHJfv4F1ax8Dg7RHM"
+    
+    const token = await req.headers.authorization.split(" ")[1]
+    
     //トークンが無い場合
     if(!token){
         return res.status(400).json({message: "トークンがありません"})
